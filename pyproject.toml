@@ -6,9 +6,11 @@ authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-matplotlib = "^2.0"
 
 [tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+is-temper = 'is_temper.main:'
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
