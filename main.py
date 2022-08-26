@@ -1,13 +1,13 @@
-from argparse import ArgumentParser
-import csv
-from matplotlib import pyplot as plt
-from csv_logger import CsvLogger
+#  Copyright (c) 2022. Inspyre Softworks (https://softworks.inspyre.tech)
+
 import logging
 import pathlib
-from time import sleep, time
+from argparse import ArgumentParser
 from threading import Thread
-from psutil import sensors_temperatures
+from time import sleep
 
+from csv_logger import CsvLogger
+from matplotlib import pyplot as plt
 
 arguments = None
 
@@ -18,7 +18,6 @@ custom_additional_levels = [
     'CPUTemperature',
     'Event'
 ]
-
 
 fmt = f'%(asctime)s{delimiter}%(levelname)s{delimiter}%(message)s'
 datefmt = '%Y-%m-%d %H:%M:%S'
@@ -36,7 +35,6 @@ csvlogger = CsvLogger(filename=filename,
                       max_size=max_size,
                       max_files=max_files,
                       header=header)
-
 
 monitoring = False
 
@@ -151,7 +149,6 @@ class Arguments(object):
             help='The log file to write to.',
             default='logs/log.csv'
         )
-
 
     def parse(self):
         return self.parser.parse_args()
